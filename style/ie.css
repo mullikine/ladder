@@ -1,0 +1,31 @@
+body {
+color:black;
+}
+
+h1 {
+	color:black;
+}
+
+.JQFEText, .JQFE {
+	color:white;
+}
+
+.JQFEOutline {
+	color:black;
+}
+
+/*ul#sidenav li > a.current {
+	background:white;
+}
+
+ul#colors {
+	display:none;
+}
+
+ul#sidenav li > .box {
+	background:#69b;
+}*/
+
+#sponsor {
+	display:none;
+}

@@ -1,0 +1,35 @@
+body {
+	font-size:16px;
+}
+
+
+ul#colors {
+	display:block;
+}
+
+ul#sidenav {
+}
+
+#sponsor {
+	display:block;
+	display:none;
+}
+
+.min {
+	display:block;
+}
+
+.min.in {
+    display:none;
+}
+
+.max {
+	display:none;
+}
+
+table tr td {
+	background:none;
+}
+
+table tr:nth-child(odd)	{ background:#eee; }
+table tr:nth-child(even){ background:#f7f7f7; }

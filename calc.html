@@ -1,0 +1,27 @@
+<div class="info">
+	<p>
+		This ladder is based on a simplified version of the <a href="http://en.wikipedia.org/wiki/ELO_rating_system">ELO rating system</a>, like on the MSN Gaming Zone. 
+		It is calculated as follows:
+	</p>
+	
+	<table class='data' cellspacing='0' cellpadding='0'>
+		<tr><td><i>&Delta;R</i></td><td>difference value of rating, each winner/loser gains/loses</td></tr>
+		<tr><td><i>R<sub>W</sub></i></td><td>winner's current rating (in team, sum of team's rating)</td></tr>
+		<tr><td><i>R<sub>L</sub></i></td><td>loser's current rating (in team, sum of team's rating)</td></tr>
+		<tr><td><i>N</i></td><td>number of players</td></tr>
+		<tr><td>&Delta;R</td><td>= 16 + (<i>R<sub>L</sub></i> - <i>R<sub>W</sub></i>) x 2 / <i>N</i> x (16 / 400)&nbsp; if (&Delta;R &gt; 31) <i>&Delta;R</i> = 31;</td></tr>
+		<tr><td></td><td>if (<i>&Delta;R</i> &lt; 1) <i>&Delta;R</i> = 1;</td></tr>
+	</table>
+	<ul style="background:none">Example:
+	<li>1vs1
+		<div>winner: 1700;&nbsp; loser: 1600</div>
+		<div style="margin-left: 15px;"> &darr; &nbsp; <i>&Delta;R</i> = 16 + (1600 - 1700) x (16 / 400) = 12</div>
+		<div>winner: 1712, loser: 1588</div>
+	</li>
+	<li>3vs3
+		<div>winners: 1500, 1600, 1700;&nbsp; losers: 1700, 1800, 1900</div>
+		<div style="margin-left: 15px;"> &darr; &nbsp; <i>&Delta;R</i> = 16 + (5400 - 4800) x 2 / 6 x (16 / 400) = 24</div>
+		<div>winner: 1524, 1624, 1724; loser: 1676, 1776, 1876</div>
+	</li>
+	</ul>
+</div>

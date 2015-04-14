@@ -1,0 +1,80 @@
+body {
+	font-family:Arial, serif;
+}
+
+ul#colors {
+	display:none;
+}
+
+#header {
+	display:block;
+	position:relative;
+	margin:0;
+	padding:0;
+}
+
+#header img{
+	display:none;
+}
+
+ul#sidenav {
+	display:none;
+}
+
+.noprint {
+	display:none;
+}
+
+table td, table th {
+	border:1px solid black;
+	border:1px solid black;
+	border:0;
+	padding:0.2em;
+}
+
+td ul {
+	margin:0;
+	padding:0;
+	list-style-type:none;
+}
+
+td ul li {
+	display:block;
+	padding:0;
+	margin:0;
+}
+
+/*table td + td, table th + th {
+	border-right:1px solid black;
+	border-bottom:1px solid black;
+}*/
+
+#header h1 {
+	display:block;
+	position:relative;
+	margin:0;
+	padding:0;
+}
+
+#header h2 {
+	font-size:x-large;
+	display:block;
+	position:relative;
+	margin:0;
+	padding:0;
+	padding-top:1.5em;
+	padding-bottom:0.2em;
+	margin-bottom:0.3em;
+	border-bottom:0.2em solid black;
+}
+
+.JQFEText, .JQFE {
+	display:block;
+	position:relative;
+	margin:0;
+	padding:0;
+}
+
+.JQFEOutline {
+	display:none;
+}

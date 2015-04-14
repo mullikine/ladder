@@ -1,0 +1,12 @@
+
+body {
+	font-size:4px;/* 0.875em ? */
+}
+
+object#bgimg, img#bgimg {
+	display:none;
+}
+
+#content {
+	overflow:hidden;
+}

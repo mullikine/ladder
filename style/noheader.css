@@ -1,0 +1,8 @@
+#header {
+	display:none;
+}
+
+ul#sidenav, #content {
+	top:0;
+	border-top:0;
+}
