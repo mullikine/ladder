@@ -129,7 +129,7 @@ function submitladdergame() {
 		}
 		QueryString += 'Ladder=' + chosonladder + '&Winners=' + winningteam;
 		$.post("include/submitladdergame.php", QueryString, function(data){
-			$('#text').html("<p>" + data + "</p>");
+			$('#page').html("<p>" + data + "</p>");
 			loading = 0;
 		});
 	}

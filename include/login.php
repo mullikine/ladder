@@ -12,9 +12,12 @@ $_POST=array_map('mysql_real_escape_string',$_POST);
 $loginname = $_POST['name'];
 $password = $_POST['password'];
 
+error_log($loginname, 0);
+
 $rating = 1600;
 
 function success($caption) {
+  global $loginname, $rating;
 	echo "1,$loginname,{$_SESSION['grname']},$rating,$caption,{$_SESSION['grid']}";
 
 	/* update all scripts to close database when done 
@@ -24,6 +27,7 @@ function success($caption) {
 }
 
 function failure($caption) {
+  global $loginname, $rating;
 	echo "0,$loginname,{$_SESSION['grname']},$rating,$caption,{$_SESSION['grid']}";
 
 	/* update all scripts to close database when done 
@@ -53,5 +57,4 @@ if ($loginname != "" && $password != "") {
 } else {
 	failure("You haven't filled out all the required fields.");
 }
-
 ?>

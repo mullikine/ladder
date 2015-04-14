@@ -8,12 +8,9 @@ ul#colors {
 }
 
 ul#sidenav {
+    top:4em;
 }
 
-#sponsor {
-	display:block;
-	display:none;
-}
 
 .min {
 	display:block;
@@ -30,6 +27,3 @@ ul#sidenav {
 table tr td {
 	background:none;
 }
-
-table tr:nth-child(odd)	{ background:#eee; }
-table tr:nth-child(even){ background:#f7f7f7; }

@@ -18,7 +18,7 @@ if(isset($_POST ['queryString'])) {
 		// eg: SELECT yourColumnName FROM yourTable WHERE yourColumnName LIKE '$queryString%' LIMIT 10
 		
 		$matchstring = '';
-		$query = "SELECT id,insignia FROM clans WHERE name LIKE '%$queryString%' OR  insignia LIKE '%$queryString%' LIMIT 10";
+		$query = "SELECT id,insignia FROM clans WHERE name LIKE '%$queryString%' OR  insignia LIKE '%$queryString%' LIMIT 20";
 		$result = mysql_query($query) or die(mysql_error());
 		if (mysql_num_rows($result) != 0) {
 			while($row = mysql_fetch_array($result)) {
@@ -29,7 +29,7 @@ if(isset($_POST ['queryString'])) {
 			$matchstring = "names LIKE '%$queryString%'";
 		}
 		
-		$query = "SELECT names, gr_id, clan FROM players WHERE open_activated='1' AND $matchstring LIMIT 10";
+		$query = "SELECT names, gr_id, clan FROM players WHERE open_activated='1' AND $matchstring LIMIT 20";
 		$result = mysql_query($query) or die(mysql_error());
 		if (mysql_num_rows($result) != 0) {
 			while($row = mysql_fetch_array($result)) {

@@ -2,7 +2,7 @@
 include('include/siteinfo.php');
 include('include/browserdetect.php');
 $nav = array("area" => isset($_GET['area'])?$_GET['area']:0);
-$areas = array("News","Ladders","Recent Matches","Members","Report a Match","Hall of Fame","Pimp My Ladder","Help");/**/
+$areas = array("Notices","Ladders","Recent Matches","Community","Report a Match","Hall of Fame","Settings","Help");/**/
 
 /*
 if (ae_detect_ie()) {
@@ -16,6 +16,7 @@ exit(0);
 */
 
 include "header.html";
+
 if ($browser != 'Explorer') {
   include "header2_firefox.html";
 } else {
@@ -30,9 +31,8 @@ if (preg_match('/\bmsie 6/i', $ua) && !preg_match('/\bopera/i', $ua)) {
 }
 
 ?>
-<div id="header">
-<img src='images/header.png' /><!--<h1>Age of Empires II Ladders</h1>-->
-</div>
+<div id="header">Age of Empires II Ladders</div>
+<div id="logo"></div>
 <ul id="sidenav"><!--Main Menu<li class='title'></li>--><?php
 foreach ($areas as $i => $value) {
 	echo "<li><a href='javascript: loadArea($i);' rel='history' ".(($nav['area']==$i)?" class='current'":"")."><img src='images/$value.png' />$value</a></li>";
@@ -43,7 +43,6 @@ if (isset($_SESSION['loginname'])) {
 } else {
 	include('include/loginmenu.html');
 ?>
-<li class="min out title">Haven't registered yet?</li>
 <li class="min out"><a class="zoom iframe" href="include/register.php"><img src="images/icon_register.png" />Register here!</a></li>
 <li class="max out"><a class="zoom iframe" href="include/register.php"><img src="images/icon_register.png" />Register</a></li>
 <?php
@@ -58,7 +57,7 @@ if (isset($_SESSION['loginname'])) {
 if (!detect_win()) {
 ?>
 <div id="sponsor">
-<span style='opacity:0.5;filter:alpha(opacity=50);'>Admin: </span>›EX‹ mantis &nbsp; <span style='opacity:0.5;filter:alpha(opacity=50);'>Forum: </span><a href="http://excalibur.haba.dk/">›Excalibur‹</a><!-- &nbsp; <a href="http://tourney.ath.cx/forum/">Forum</a>-->
+<span style='opacity:0.5;filter:alpha(opacity=50);'>Admin: </span><a href="gr://info/303529">›EX‹ mantis</a>&nbsp; <span style='opacity:0.5;filter:alpha(opacity=50);'>Forums: </span><a href="http://aoe2mac.net/">Bob&#39;s Site</a>&nbsp; <a href="http://ex.cruft.co.nz/">›Excalibur‹</a>&nbsp; <a href="http://tdk.hysteron.net/index.php">Death Knights</a>&nbsp; <a href="http://highlyevolved.webs.com/">Highly Evolved</a>&nbsp; <a href="http://www.ikotame.net/eoe/aoe.html">eØe</a><!-- &nbsp; <a href="http://tourney.ath.cx/forum/">Forums</a>-->
 </div>
 <?php
 }

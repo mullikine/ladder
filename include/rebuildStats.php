@@ -5,6 +5,8 @@ include_once("./quicksort.php");
 
 include('connect_db.php');
 
+include("updatestats.php");
+
 /* if ($_GET['moderatorpw'] != "test") {
 	echo "Wrong password.";
 	exit(0);
@@ -19,7 +21,6 @@ echo "<ul>";
 while($row_ladder = mysql_fetch_array($sql_ladders)) {
 	$ladder = $row_ladder['id'];
 	echo "<li>Ladder $ladder";
-	$laddertype = $row_ladder['laddertype'];
 	$unisonladder = $row_ladder['unisonladder'];
 	$query_games = "SELECT * FROM games WHERE ladder='".$ladder."' ORDER BY id;";
 	$sql_games = mysql_query($query_games) or die(mysql_error());
@@ -61,7 +62,7 @@ while($row_ladder = mysql_fetch_array($sql_ladders)) {
 			}
 		}
 
-		include("updatestats.php");
+		update_stats($players, $teamwon, $ladder);
 		echo "</li>";
 	}
 	echo "</ul></li>";

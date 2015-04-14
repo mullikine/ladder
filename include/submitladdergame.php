@@ -5,51 +5,45 @@ include("connect_db.php");
 $_POST=array_map("mysql_real_escape_string",$_POST);
 
 /* if ($_POST['moderatorpw'] != "test") {
-	echo "Wrong password.";
-	exit(0);
-} */
+   echo "Wrong password.";
+   exit(0);
+   } */
 
 $ladder = $_POST['Ladder'];
 $teamwon = $_POST['Winners'];
 $grid = array();
-$grid[] = $_POST['Player1grid'];
-$grid[] = $_POST['Player2grid'];
-$grid[] = $_POST['Player3grid'];
-$grid[] = $_POST['Player4grid'];
-$grid[] = $_POST['Player5grid'];
-$grid[] = $_POST['Player6grid'];
-$grid[] = $_POST['Player7grid'];
-$grid[] = $_POST['Player8grid'];
 $team = array();
-$team[] = $_POST['Player1Team'];
-$team[] = $_POST['Player2Team'];
-$team[] = $_POST['Player3Team'];
-$team[] = $_POST['Player4Team'];
-$team[] = $_POST['Player5Team'];
-$team[] = $_POST['Player6Team'];
-$team[] = $_POST['Player7Team'];
-$team[] = $_POST['Player8Team'];
+for ($i=1;$i<=8;$i++) {
+  $player_grid = 'Player'.$i.'grid';
+  $player_team = 'Player'.$i.'Team';
+
+  if (!(isset($_POST[$player_grid]) && isset($_POST[$player_team]))) {
+    break;
+  }
+  $grid[] = $_POST[$player_grid];
+  $team[] = $_POST[$player_team];
+}
 
 $players = array();
 for ($i = 0; $i < count($grid); $i++) {
-	if ($grid[$i] > 0) {
-		$row = array();
-		$row[] = $grid[$i];
-		$row[] = $team[$i];
-		$players[] = $row;
-	}
+  if ($grid[$i] > 0) {
+    $row = array();
+    $row[] = $grid[$i];
+    $row[] = $team[$i];
+    $players[] = $row;
+  }
 }
 
-$query_ladders = "SELECT * FROM ladders WHERE id='$ladder';";
-$sql_ladders = mysql_query($query_ladders) or die(mysql_error());
-while($row_ladder = mysql_fetch_array($sql_ladders)) {
-	$laddertype = $row_ladder['laddertype'];
-	$unisonladder = $row_ladder['unisonladder'];
-}
-
-$insertgame = 1;
+/* $insertgame = 1; */
 
 include("insertgametodb.php");
 include("updatestats.php");
+
+echo '<div id="page"><div id="title">Match Submitted</div>';
+
+insert_game($players,$teamwon,$ladder);
+update_stats($players, $teamwon, $ladder);
+
+echo '</div>';
 
 ?>

@@ -1,6 +1,7 @@
 <?php
 
-session_start();
+@session_start();
+
 $maintenance = false;
 
 if (isset($_SERVER['HTTP_USER_AGENT'])) {

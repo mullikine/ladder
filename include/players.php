@@ -11,10 +11,7 @@
 	
 	
 	$finalhtml .= <<<EOD
-		<div id="title">
-		Members of AoK Ladders
-		</div><div id="titlefade"><div class="whitetopblend"></div></div>
-		<div id="page">
+		<div id="page"><div id="title">Members of AoK Ladders</div>
 EOD;
 	
 	while($clanrow = mysql_fetch_array($result)) {
@@ -28,14 +25,15 @@ EOD;
 		<table class='playersgroup colored' cellpadding='0' cellspacing='0'>
 			<thead>
 				<tr>
-					<th>{$clanrow['name']} Clan</th>
+					<th>{$clanrow['name']}</th>
 				</tr>
 			</thead>
 		<tbody>
 EOD;
 		
-		while($playerrow = mysql_fetch_array($result2)) {
-			$finalhtml .= "<tr><td><img class='playericon' src='http://www.gameranger.com/icon.cgi?{$playerrow['gr_id']}' height='1em' />{$playerrow['names']}</td></tr>";
+        while($playerrow = mysql_fetch_array($result2)) {
+            $playername = $clanrow['insignia'].$playerrow['names'];
+			$finalhtml .= "<tr><td><img class='playericon' src='http://www.gameranger.com/icon.cgi?{$playerrow['gr_id']}' height='1em' />$playername</td></tr>";
 		}
 		$finalhtml .= <<<EOD
 		</tbody>

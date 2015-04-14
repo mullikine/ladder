@@ -2,8 +2,12 @@
 include('siteinfo.php');
 include('connect_db.php');
 
+if (!isset($_GET['area'])) {
+  $_GET['area']=0;
+}
+
 $_SESSION['area'] = $_GET['area'];
-$_SESSION['ladder'] = $_GET['ladder'];
+$_SESSION['ladder'] = (isset($_GET['ladder'])?$_GET['ladder']:NULL);
 
 /*echo 'Remote address: '.$_SESSION['REMOTE_ADDR'];
 print_r($_SERVER);*/
@@ -11,14 +15,11 @@ print_r($_SERVER);*/
 switch ($_GET['area']) {
 case 0:
 ?>
-	<div id="title">
-		Most Recent News
-	</div><div id="titlefade"><div class="whitetopblend"></div></div>
-	<div id="page">
+	<div id="page"><div id="title">Notices</div>
 		<div id="news">
 <?php
 
-$query = "SELECT * FROM news ORDER BY date DESC;";
+$query = "SELECT * FROM news WHERE visible=1 ORDER BY date DESC;";
 $result = mysql_query($query) or die(mysql_error());
 while ($newsrow = mysql_fetch_array($result)) {
 
